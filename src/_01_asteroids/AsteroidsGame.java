@@ -61,8 +61,9 @@ public class AsteroidsGame implements GameScene, ActionListener {
 			score = 0;
 			asteroids.clear();
 		}
-		if (lives > -1)
+		if (lives > -1) {
 			score++;
+		}
 		rocket.update();
 		if (rocket.fire && !rof.isRunning()) {
 			bullets.add(new Bullet(rocket.x, rocket.y, rocket.angle));

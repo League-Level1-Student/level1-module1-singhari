@@ -44,14 +44,18 @@ public class Asteroid {
 		x += xSpeed;
 		y += ySpeed;
 
-		if (x < 0)
+		if (x < 0) {
 			x = AsteroidsGame.WIDTH;
-		if (x > AsteroidsGame.WIDTH)
+		}
+		if (x > AsteroidsGame.WIDTH) {
 			x = 0;
-		if (y < 0)
+		}
+		if (y < 0) {
 			y = AsteroidsGame.HEIGHT;
-		if (y > AsteroidsGame.HEIGHT)
+		}
+		if (y > AsteroidsGame.HEIGHT) {
 			y = 0;
+		}
 
 		collisionBox.setLocation(x - RADIUS, y - RADIUS);
 	}
