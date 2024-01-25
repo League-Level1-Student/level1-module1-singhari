@@ -6,7 +6,7 @@ import java.awt.Rectangle;
 import java.util.Random;
 
 public class Melon {
-    static final int RADIUS = 10;
+    static final int RADIUS = 70;
     static final int DIAMETER = 2 * RADIUS;
     int x, y, speed;
     double xSpeed, ySpeed, angle;

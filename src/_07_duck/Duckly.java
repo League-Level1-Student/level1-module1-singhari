@@ -8,7 +8,7 @@ public class Duckly {
 	    this.numberOfFriends = numberOfFriends;
 	}
 	public void quack() {
-		System.out.println("The duck says Quack! It's calling its "+numberOfFriends+" over!");
+		System.out.println("The duck says Quack! It's calling its "+numberOfFriends+" friends over!");
 		
 	}
 	public void waddle(){

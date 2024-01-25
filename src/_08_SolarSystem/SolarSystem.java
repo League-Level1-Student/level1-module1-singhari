@@ -10,7 +10,7 @@ import game_tools.GameControlScene;
 /*
  * Background:
  * Our solar system has 8 planets that orbit around the sun:
- * Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune
+ * Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune 
  * While each planet is spherical, they are different sizes, colors,
  * and distances from the sun.
  * 
@@ -23,8 +23,8 @@ import game_tools.GameControlScene;
  * 
  * 1. In the Planet class:
  *    a. Add member variables for:
- *       - planet color
- *       - distance from sun
+ *       - planet color (done)
+ *       - distance from sun (done)
  *       - orbital period (how many days it takes the planet to circle the sun)
  *    b. Assign the member variables in the constructor
  * 
@@ -66,7 +66,15 @@ public class SolarSystem implements GameControlScene {
     Long startTimeMs = null;
     Game gameFrame = new Game("Solar System");
     
+    Planet mercury = new Planet(5);
+    Planet venus = new Planet(12);
     Planet earth = new Planet(12);
+    Planet mars = new Planet(7);
+    Planet jupiter = new Planet(143);
+    Planet saturn = new Planet(120);
+    Planet uranus = new Planet(51);
+    Planet neptune = new Planet(49);
+    
     
     public SolarSystem() {
         gameFrame.setScene(this);
@@ -117,7 +125,15 @@ public class SolarSystem implements GameControlScene {
         /*
          * Add planets here
          */
-        earth.draw(g, numDays);
+        mercury.draw(g, numDays, 579, "gray");
+        venus.draw(g, numDays, 1082, "y");
+        earth.draw(g, numDays, 1496, "i");
+        mars.draw(g, numDays, 2279, "red");
+        jupiter.draw(g, numDays, 7786, "y");
+        saturn.draw(g, numDays, 14335, "y");
+        uranus.draw(g, numDays, 28725, "i");
+        neptune.draw(g, numDays, 44951, "i");
+        
     }
     
     @Override

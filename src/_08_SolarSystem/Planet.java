@@ -11,19 +11,37 @@ public class Planet {
      */
     int x, y, width, height;
     int diameter;
+    String coloring;
+    int distFromSun;
     
     public Planet(int diameterPixels) {
         this.diameter = diameterPixels;
     }
 
-    public void draw(Graphics g, int numDays) {
+    public void draw(Graphics g, int numDays, int raidus, String cooler) {
         /*
          * Local variables
          * Reassign or remove these after creating the correct member variables
          */
-        int avgDistFromSun = 1496 / 10;     // You can choose a different scaling than divided by 10
+        int avgDistFromSun = raidus / 10;     // You can choose a different scaling than divided by 10
         int orbitalPeriod = 365;
-        Color color = Color.BLUE;
+        Color color;
+        if(cooler.equals("gray")) {
+        	 color = Color.GRAY;
+        	//Mercury
+        }
+        else if(cooler.equals("y")) {
+        	 color = Color.YELLOW;
+        	//Venus, saturn, Jupiter
+        }
+        else if(cooler.equals("red")) {
+        	 color = Color.RED;
+        	//Mars
+        }
+        else {
+        	 color = Color.BLUE;
+        	//Neptune, Uranus, Earth
+        }
         
         /*
          * Update position
