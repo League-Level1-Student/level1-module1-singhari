@@ -30,14 +30,25 @@ public class TurfWar extends PApplet {
         boolean moveLeft = false;
         boolean moveRight = false;
         int pixelCount = 0;
-
-        void drawPlayer(int x, int y, int playerSize, int playerColor) {
+        
+        public Player(int x,int y,int speed,int playerSize, int playerColor, int upKey, int leftKey, int downKey, int rightKey) {
+        	this.x =x;
+        	this.y = y;
+        	this.speed = speed;
+        	this.playerSize = playerSize;
+        	this.playerColor =playerColor;
+        	this.upKey = upKey;
+        	this.leftKey =leftKey;
+        	this.downKey = downKey;
+        	this.rightKey =rightKey;
+        }
+        void drawPlayer() {
             /*
              * 2. Draw a rectangle to represent the the Player using its color,
              * coordinates and size.
              */
         	fill(playerColor);
-        	rect(x,y,playerSize,20);
+        	rect(x,y,playerSize,playerSize);
             
         }
 
@@ -60,14 +71,14 @@ public class TurfWar extends PApplet {
              * Note: You do not need to use the statsBoardLine for the 
              * other directions.
              */
-            if(moveDown) {
+            if(moveDown && y >600) {
             	y+=speed;
             }
-            if(moveRight) {
+            if(moveRight && y < 600) {
             	x+=speed;
             }
-            if(moveLeft) {
-            	y+=speed;
+            if(moveLeft && y > 600) {
+            	x-=speed;
             }
         }
 
@@ -140,7 +151,7 @@ public class TurfWar extends PApplet {
     @Override
     public void settings() {
         // 5. Set the size for your sketch. Make it at least 300x300.
-       size(300,300);
+       size(600,600);
     }
 
     @Override
@@ -170,8 +181,8 @@ public class TurfWar extends PApplet {
          * will give that player an unfair advantage.
          */
 
-        player1 = new Player();
-        player2 = new Player();
+        player1 = new Player(200,100,3,50,Color.RED.getRGB(),UP,LEFT,DOWN,RIGHT);
+        player2 = new Player(100,100,3,50,Color.BLUE.getRGB(),W,A,S,D);
        
     }
 
@@ -241,8 +252,8 @@ public class TurfWar extends PApplet {
     @Override
     public void draw() {
         // 10. Call the drawPlayer method for both players.
-    		player1.drawPlayer(20,20,100,20);
-    		player2.drawPlayer(40,20,100,190);
+    		player1.drawPlayer();
+    		player2.drawPlayer();
         // 11. Call the update method for both players.
     		player1.update();
     		player2.update();
@@ -262,14 +273,8 @@ public class TurfWar extends PApplet {
          * 15. Call the enableMovement method for both players and pass keyCode
          * to the method.
          */        
-    	 player1.enableMovement(UP);
-         player1.enableMovement(DOWN);
-         player1.enableMovement(RIGHT);
-         player1.enableMovement(LEFT);
-         player2.enableMovement(D);
-         player2.enableMovement(W);
-         player2.enableMovement(A);
-         player2.enableMovement(S);
+    	 player1.enableMovement(keyCode);
+         player2.enableMovement(keyCode);
     }
 
     @Override
@@ -278,14 +283,8 @@ public class TurfWar extends PApplet {
          * 16. Call the disableMovement method for both players and pass keyCode
          * to the method.
          */
-    	player1.disableMovement(UP);
-    	player1.disableMovement(DOWN);
-    	player1.disableMovement(RIGHT);
-    	player1.disableMovement(LEFT);
-    	player2.disableMovement(D);
-    	player2.disableMovement(W);
-    	player2.disableMovement(A);
-    	player2.disableMovement(S);
+   	 player1.disableMovement(keyCode);
+     player2.disableMovement(keyCode);
     	}
 
     /*
